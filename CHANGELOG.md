@@ -4,6 +4,8 @@ All notable changes to Architectural Prompt Kit are documented here.
 
 ## Unreleased
 
+- Add provider-neutral paragraph, sectioned, and compact prompt export profiles.
+
 - Add practical interior, landscape, and product prompt examples.
 - Add automated validation and prompt-generation checks for every bundled example.
 
