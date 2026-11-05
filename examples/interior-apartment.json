@@ -1,0 +1,26 @@
+{
+  "schemaVersion": "1.0",
+  "projectType": "interior",
+  "subject": "a calm contemporary apartment living room with a connected dining area",
+  "camera": {
+    "shotType": "wide",
+    "focalLengthMm": 24,
+    "angle": "eye-level corner view looking diagonally across the living space"
+  },
+  "materials": [
+    "warm white limewash walls",
+    "natural oak veneer cabinetry",
+    "honed travertine flooring",
+    "brushed stainless steel details",
+    "soft woven upholstery"
+  ],
+  "lighting": {
+    "type": "mixed",
+    "timeOfDay": "late afternoon",
+    "direction": "daylight entering from full-height glazing with subtle warm practical lights",
+    "quality": "soft indirect illumination with realistic contact shadows"
+  },
+  "environment": "a lived-in but uncluttered urban apartment with restrained styling",
+  "style": "photorealistic editorial interior photography with natural material response",
+  "constraints": "preserve the supplied room dimensions, wall positions, window and door openings, furniture layout and camera composition"
+}

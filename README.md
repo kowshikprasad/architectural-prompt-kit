@@ -18,6 +18,7 @@ Architectural visualization prompts combine design intent, camera direction, mat
 - Format valid prompt data as JSON.
 - Provide a JSON Schema for editor and form integrations.
 - Validate, format, or generate prompt text from the command line.
+- Include reusable exterior, interior, landscape, and product examples.
 - Run tests using Node.js' built-in test runner; no runtime dependencies.
 
 ## Requirements
@@ -96,9 +97,16 @@ The canonical machine-readable definition is [schema/prompt.schema.json](schema/
 
 Validation returns `{ valid, errors, warnings }`. Prompt generation throws a `TypeError` when required data is invalid.
 
-## Example
+## Example library
 
-See [examples/tropical-residence.json](examples/tropical-residence.json) for a complete exterior prompt.
+The `examples/` directory contains complete, validated prompt documents:
+
+- [Tropical residence](examples/tropical-residence.json) — exterior architecture
+- [Contemporary apartment](examples/interior-apartment.json) — interior visualization
+- [Public plaza](examples/landscape-public-plaza.json) — landscape architecture
+- [Timber lounge chair](examples/product-chair.json) — product visualization
+
+Use these as starting points and adapt the subject, camera, materials, lighting, and preservation constraints to your project.
 
 ## Design limitations
 
@@ -111,8 +119,8 @@ This toolkit does not generate images, call an AI model, guarantee photorealism,
 - [x] Unit tests and continuous integration
 - [x] JSON Schema
 - [x] Basic CLI
+- [x] Exterior, interior, landscape, and product examples
 - [ ] Provider-neutral prompt export profiles
-- [ ] Additional interior and landscape examples
 - [ ] Community-contributed examples and adapters
 
 Roadmap items are planned, not currently implemented.

@@ -1,0 +1,23 @@
+{
+  "schemaVersion": "1.0",
+  "projectType": "product",
+  "subject": "a sculptural solid timber lounge chair with a curved backrest and woven seat",
+  "camera": {
+    "shotType": "medium",
+    "focalLengthMm": 50,
+    "angle": "front three-quarter product view at seated eye level"
+  },
+  "materials": [
+    "oiled walnut timber",
+    "natural cane webbing",
+    "satin clear protective finish"
+  ],
+  "lighting": {
+    "type": "studio",
+    "direction": "large soft key light from camera left with gentle fill",
+    "quality": "controlled highlights revealing timber grain and woven texture"
+  },
+  "environment": "a seamless warm neutral studio background with a subtle grounded shadow",
+  "style": "high-end furniture catalogue photography",
+  "constraints": "preserve the exact chair silhouette, joinery, proportions, material boundaries and supplied design details"
+}
