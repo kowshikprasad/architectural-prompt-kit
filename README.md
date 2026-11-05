@@ -2,43 +2,55 @@
 
 [![Tests](https://github.com/kowshikprasad/architectural-prompt-kit/actions/workflows/prompt-kit.yml/badge.svg)](https://github.com/kowshikprasad/architectural-prompt-kit/actions/workflows/prompt-kit.yml)
 
-A small, dependency-free JavaScript toolkit for validating structured architectural visualization prompts and assembling them into readable prompt text.
+A dependency-free JavaScript toolkit for validating structured architectural visualization prompts and assembling them into readable prompt text.
 
 Maintained by AI 3D Renderlab as an independent open-source developer utility.
 
 ## Why it exists
 
-Architectural image-generation prompts often mix design intent, camera direction, material specifications, lighting, context, and preservation constraints in one unstructured paragraph. This toolkit gives those inputs a predictable JSON structure so they can be checked, reused, and converted into prompt text.
+Architectural visualization prompts combine design intent, camera direction, materials, lighting, context, and preservation constraints. This project gives those inputs a versioned JSON structure so they can be validated, reused, and converted into consistent prompt text.
 
-## Current capabilities
+## Capabilities
 
-- Validate required prompt fields and supported enumerations.
+- Validate prompt fields, types, and supported enumerations.
 - Check camera focal length and common camera-shot labels.
-- Validate material lists and lighting descriptions.
-- Assemble structured fields into a readable prompt.
+- Assemble structured fields into readable prompt text.
 - Format valid prompt data as JSON.
-- Run tests using Node.js built-in test runner; no runtime dependencies.
+- Provide a JSON Schema for editor and form integrations.
+- Validate, format, or generate prompt text from the command line.
+- Run tests using Node.js' built-in test runner; no runtime dependencies.
 
 ## Requirements
 
-- Node.js 20 or newer.
+Node.js 20 or newer.
 
-## Install / use locally
+## Quick start
 
-Clone this repository and run:
+Clone the repository and run:
 
 ```bash
 npm test
+npm run check:example
 ```
 
-Import the functions into a JavaScript project:
+The CLI can validate a JSON file, print its assembled prompt, or format the JSON:
+
+```bash
+node bin/apk.js examples/tropical-residence.json
+node bin/apk.js examples/tropical-residence.json --prompt
+node bin/apk.js examples/tropical-residence.json --format
+```
+
+After installing the package globally or linking it locally, the executable is available as `apk`.
+
+## JavaScript API
 
 ```js
 import {
   validatePrompt,
   buildPrompt,
   formatPromptJson
-} from "./src/index.js";
+} from "@ai3drenderlab/architectural-prompt-kit";
 
 const prompt = {
   schemaVersion: "1.0",
@@ -66,8 +78,6 @@ if (!validation.valid) {
 }
 ```
 
-A complete example is available in [examples/tropical-residence.json](examples/tropical-residence.json).
-
 ## Prompt data format
 
 | Field | Type | Required | Notes |
@@ -82,7 +92,13 @@ A complete example is available in [examples/tropical-residence.json](examples/t
 | `style` | string | No | Intended visual language |
 | `constraints` | string | No | Geometry, camera, or design elements to preserve |
 
-Validation returns errors and non-blocking warnings. Prompt generation throws a `TypeError` when required data is invalid.
+The canonical machine-readable definition is [schema/prompt.schema.json](schema/prompt.schema.json). The JavaScript validator provides actionable error messages and warnings; keep the schema and validator aligned when changing the prompt format.
+
+Validation returns `{ valid, errors, warnings }`. Prompt generation throws a `TypeError` when required data is invalid.
+
+## Example
+
+See [examples/tropical-residence.json](examples/tropical-residence.json) for a complete exterior prompt.
 
 ## Design limitations
 
@@ -93,16 +109,17 @@ This toolkit does not generate images, call an AI model, guarantee photorealism,
 - [x] Versioned JSON prompt structure (v1.0)
 - [x] Validation and prompt assembly
 - [x] Unit tests and continuous integration
-- [ ] JSON Schema published for editor integrations
+- [x] JSON Schema
+- [x] Basic CLI
 - [ ] Provider-neutral prompt export profiles
-- [ ] CLI for validating prompt files
+- [ ] Additional interior and landscape examples
 - [ ] Community-contributed examples and adapters
 
 Roadmap items are planned, not currently implemented.
 
 ## Contributing
 
-Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md), open an issue for larger changes, and include tests for new validation behavior.
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md), open an issue for larger changes, and include tests for new validation behavior. Changes to the prompt format should update the JavaScript validator, JSON Schema, tests, and documentation together.
 
 ## License
 
