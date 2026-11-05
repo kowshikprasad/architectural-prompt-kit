@@ -40,7 +40,7 @@ export function validatePrompt(prompt) {
 }
 
 /** Assemble validated prompt data; preservation flags become explicit negative constraints. */
-export function buildPrompt(prompt) {
+export function buildPrompt(prompt, options = {}) {
   const result = validatePrompt(prompt);
   if (!result.valid) throw new TypeError(`Invalid architectural prompt: ${result.errors.join(" ")}`);
   const sections = [`Create an architectural visualization of ${prompt.subject.trim()}.`, `Project type: ${prompt.projectType}.`];
@@ -64,6 +64,12 @@ export function buildPrompt(prompt) {
     const active=PRESERVATION_FLAGS.filter(key=>prompt.preservation[key]===true).map(key=>labels[key]);
     if(active.length) sections.push(`Strict preservation requirements: retain ${active.join("; ")}. Do not redesign, relocate, remove, reinterpret or alter these elements.`);
   }
+  const format = options.format ?? "paragraph";
+  if (!["paragraph", "sectioned", "compact"].includes(format)) {
+    throw new RangeError('format must be "paragraph", "sectioned", or "compact".');
+  }
+  if (format === "sectioned") return sections.join("\\n\\n");
+  if (format === "compact") return sections.join(" ").replace(/\\s+/g, " ").trim();
   return sections.join(" ");
 }
 
