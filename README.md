@@ -47,7 +47,18 @@ const prompt = {
 const result = validatePrompt(prompt);
 if (!result.valid) throw new Error(result.errors.join("\n"));
 console.log(buildPrompt(prompt));
+console.log(buildPrompt(prompt, { format: "sectioned" }));
 ```
+
+### Provider-neutral export formats
+
+`buildPrompt(prompt, { format })` supports three presentation profiles without binding the output to a specific image provider:
+
+- `paragraph` (default): one continuous paragraph, preserving the existing API behaviour.
+- `sectioned`: separate camera, materials, lighting and preservation sections with blank lines.
+- `compact`: a whitespace-normalized single-line prompt for interfaces with limited space.
+
+Example: `buildPrompt(prompt, { format: "sectioned" })`. Unknown formats throw a `RangeError`.
 
 ## Prompt format
 Required fields are `schemaVersion` (`1.0`), `projectType` (`exterior`, `interior`, `landscape`, `product`, or `architectural-diagram`) and a non-empty `subject`. Optional fields include `camera`, `materials`, `lighting`, `environment`, `style`, `constraints` and `preservation`.
