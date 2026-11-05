@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "projectType": "landscape",
+  "subject": "a shaded public plaza connecting a civic building to a tree-lined pedestrian street",
+  "camera": {
+    "shotType": "wide",
+    "focalLengthMm": 28,
+    "angle": "pedestrian eye-level three-quarter view"
+  },
+  "materials": [
+    "light grey granite paving",
+    "board-formed concrete seating edges",
+    "weathered steel planters",
+    "timber bench slats"
+  ],
+  "lighting": {
+    "type": "natural",
+    "timeOfDay": "bright overcast afternoon",
+    "direction": "soft skylight with filtered tree shadows",
+    "quality": "balanced diffuse light with legible surface texture"
+  },
+  "environment": "a temperate urban public realm with mature canopy trees, layered planting, pedestrians and accessible circulation",
+  "style": "documentary landscape-architecture photography",
+  "constraints": "preserve the supplied site boundary, paving geometry, building edges, paths, planting zones and existing camera viewpoint"
+}
