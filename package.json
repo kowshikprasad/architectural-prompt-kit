@@ -1,0 +1,29 @@
+{
+  "name": "@ai3drenderlab/architectural-prompt-kit",
+  "version": "0.1.0",
+  "description": "A dependency-free toolkit for validating and assembling structured architectural visualization prompts.",
+  "type": "module",
+  "main": "./src/index.js",
+  "exports": {
+    ".": "./src/index.js"
+  },
+  "scripts": {
+    "test": "node --test",
+    "test:watch": "node --test --watch"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kowshikprasad/architectural-prompt-kit.git"
+  },
+  "keywords": [
+    "architecture",
+    "architectural-visualization",
+    "prompt-engineering",
+    "ai-rendering",
+    "3d"
+  ]
+}
