@@ -1,0 +1,25 @@
+{
+  "schemaVersion": "1.0",
+  "projectType": "exterior",
+  "subject": "a two-storey tropical residence with a shaded courtyard",
+  "camera": {
+    "shotType": "wide",
+    "focalLengthMm": 28,
+    "angle": "eye-level three-quarter view"
+  },
+  "materials": [
+    "board-formed concrete",
+    "warm teak timber",
+    "clear low-iron glass",
+    "locally sourced stone"
+  ],
+  "lighting": {
+    "type": "natural",
+    "timeOfDay": "late afternoon",
+    "direction": "soft side light",
+    "quality": "diffused with realistic shadow detail"
+  },
+  "environment": "a lush tropical residential landscape after light rain",
+  "style": "photorealistic editorial architectural photography",
+  "constraints": "preserve the supplied building geometry, facade openings, roof profile and camera composition"
+}
