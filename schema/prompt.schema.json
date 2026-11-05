@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/kowshikprasad/architectural-prompt-kit/blob/main/schema/prompt.schema.json",
+  "title": "Architectural Prompt Kit prompt",
+  "description": "Version 1.0 structured data for architectural visualization prompts.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "projectType", "subject"],
+  "properties": {
+    "schemaVersion": { "const": "1.0" },
+    "projectType": {
+      "type": "string",
+      "enum": ["exterior", "interior", "landscape", "product", "architectural-diagram"]
+    },
+    "subject": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "camera": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "shotType": {
+          "type": "string",
+          "enum": ["wide", "medium", "close-up", "aerial", "eye-level", "low-angle", "high-angle", "isometric", "orthographic"]
+        },
+        "focalLengthMm": { "type": "number", "exclusiveMinimum": 0, "maximum": 300 },
+        "angle": { "type": "string", "minLength": 1, "pattern": "\\S" }
+      }
+    },
+    "materials": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1, "pattern": "\\S" }
+    },
+    "lighting": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "type": { "type": "string", "enum": ["natural", "studio", "mixed", "artificial"] },
+        "timeOfDay": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "direction": { "type": "string", "minLength": 1, "pattern": "\\S" },
+        "quality": { "type": "string", "minLength": 1, "pattern": "\\S" }
+      }
+    },
+    "environment": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "style": { "type": "string", "minLength": 1, "pattern": "\\S" },
+    "constraints": { "type": "string", "minLength": 1, "pattern": "\\S" }
+  }
+}
