@@ -2,13 +2,7 @@ name: Architectural Prompt Kit
 
 on:
   push:
-    paths:
-      - "**"
-      - ".github/workflows/prompt-kit.yml"
   pull_request:
-    paths:
-      - "**"
-      - ".github/workflows/prompt-kit.yml"
   workflow_dispatch:
 
 permissions:
@@ -16,14 +10,20 @@ permissions:
 
 jobs:
   test:
-    name: Test prompt toolkit
+    name: Node.js ${{ matrix.node-version }} tests
     runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        node-version: [20, 22]
     steps:
       - name: Check out repository
         uses: actions/checkout@v4
       - name: Set up Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 20
-      - name: Run test suite
+          node-version: ${{ matrix.node-version }}
+      - name: Run unit tests
         run: npm test
+      - name: Validate example through CLI
+        run: npm run check:example
